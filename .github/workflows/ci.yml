@@ -1,0 +1,21 @@
+name: VeeR-EH1 CI
+
+on:
+  push:
+    branches:
+      - main
+      - docs
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * *' # run daily at 02:00 am (UTC)
+
+jobs:
+
+  Test-EH1-Regression:
+    name: Test-EH1-Regression
+    uses: ./.github/workflows/test-eh1-regression.yml
+
+  Build-and-deploy-docs:
+    name: Build-and-deploy-docs
+    uses: ./.github/workflows/build-docs.yml
