@@ -31,6 +31,7 @@ jobs:
             pip3 install -r requirements.txt
             make html
           popd
+          cp .github/scripts/index.html docs/build/
           ls -lah docs/build
 
       - name: Configure Pages
